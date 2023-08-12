@@ -14,6 +14,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
+    <link href="DataTables/datatables.min.css" rel="stylesheet">
+
+<script src="DataTables/datatables.min.js"></script>
+<script src= "DataTables/DataTables-1.13.6/js/jquery.js"></script>
 
     <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
 

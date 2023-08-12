@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('projet.index');
 
 });
 Route::get('/projet/create', [projetController::class, 'create'])->name('projet.create');
+Route::get('/projet/index', [projetController::class, 'index'])->name('projet.index');

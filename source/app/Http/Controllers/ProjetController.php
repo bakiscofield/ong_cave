@@ -12,7 +12,8 @@ class ProjetController extends Controller
      */
     public function index()
     {
-        //
+        $projet=Projet::all();
+        dd($projet);
     }
 
     /**

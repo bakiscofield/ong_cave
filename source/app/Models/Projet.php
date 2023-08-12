@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Projet extends Model
 {
@@ -17,10 +18,10 @@ class Projet extends Model
         'objectif_specifiques',
         'financement',
         'budjet',
-        'realisateur',
         'zone',
-        'duree',
-        'photos'
+        'date_debut',
+        'date_fin',
+        'fichier_projet'
 
     ];
     public function categorie_projet():BelongsTo
@@ -33,5 +34,10 @@ class Projet extends Model
     {
 
         return $this->belongsTo(User::class);
+    }
+
+    public function realisateur():HasMany
+    {
+    return $this->hasmany(Realisateur::class);
     }
 }

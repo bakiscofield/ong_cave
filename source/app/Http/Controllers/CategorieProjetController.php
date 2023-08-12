@@ -12,7 +12,8 @@ class CategorieProjetController extends Controller
      */
     public function index()
     {
-        //
+        $projet_categorie=Categorie_projet::all();
+        return view('categorie_projet.index', compact('projet_categorie'));
     }
 
     /**
@@ -20,7 +21,7 @@ class CategorieProjetController extends Controller
      */
     public function create()
     {
-       return ;
+       return  view('categorie_projet.create');
     }
 
     /**

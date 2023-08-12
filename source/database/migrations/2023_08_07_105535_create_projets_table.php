@@ -20,10 +20,10 @@ return new class extends Migration
             $table->string('objectif_specifiques');
             $table->string('financement');
             $table->string('budjet');
-            $table->string('realisateur');
             $table->string('zone');
-            $table->string('duree');
-            $table->string('photos');
+            $table->string('date_debut');
+            $table->string('date_fin');
+            $table->string('fichier_projet');
             $table->foreign('id_categorie')->references('id')->on('categorie_projets');
             $table->foreign('id_user')->references('id')->on('users');
             $table->timestamps();
