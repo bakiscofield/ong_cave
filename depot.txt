@@ -487,3 +487,14 @@
 <script>
     new DataTable('#example', {});
 </script>
+     <tr>
+            <th>titre_projet</th>
+            <th>objectif_global</th>
+            <th>objectif_specifiques</th>
+            <th>financement</th>
+            <th>budjet</th>
+            <th>zone</th>
+            <th>date_debut</th>
+            <th>date_fin</th>
+            <th>fichier_projet</th>
+          </tr>

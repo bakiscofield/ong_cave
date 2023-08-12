@@ -12,8 +12,15 @@ class ProjetController extends Controller
      */
     public function index()
     {
-        $projet=Projet::all();
-        dd($projet);
+        $projets=Projet::all();
+        // dump($projet[0]->titre_projet);
+        // dump($projet[0]->objectif_global);
+        // dump($projet[0]->objectif_specifiques);
+        // dump($projet[0]->financement);
+        // dump($projet[0]->budjet);
+        // dd($projet[0]->zone);
+       // $projets[0]->find_duration();
+        return view('projet.index', compact('projets'));
     }
 
     /**
@@ -23,6 +30,8 @@ class ProjetController extends Controller
     {
         return view('projet.create');
     }
+
+
 
     /**
      * Store a newly created resource in storage.
