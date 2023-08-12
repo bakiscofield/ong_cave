@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Carbon\Carbon;
 
 class Projet extends Model
 {
@@ -24,6 +25,9 @@ class Projet extends Model
         'fichier_projet'
 
     ];
+    protected $casts=["date_debut"=>"datetime",
+    "date_fin"=>"datetime"
+];
     public function categorie_projet():BelongsTo
     {
 
@@ -39,5 +43,14 @@ class Projet extends Model
     public function realisateur():HasMany
     {
     return $this->hasmany(Realisateur::class);
+    }
+
+
+    public function find_duration()
+    {
+       $debut= Carbon::parse($this->date_debut);
+       $fin= Carbon::parse($this->date_fin);
+       $duration= $debut->diffInDays($this->date_fin) ;
+        return($duration);
     }
 }

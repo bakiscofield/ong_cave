@@ -21,3 +21,4 @@ Route::get('/', function () {
 });
 Route::get('/projet/create', [projetController::class, 'create'])->name('projet.create');
 Route::get('/projet/index', [projetController::class, 'index'])->name('projet.index');
+
