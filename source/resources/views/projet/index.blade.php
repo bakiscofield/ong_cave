@@ -1,5 +1,9 @@
 @extends('layout.dashboard')
 @section('content')
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
 <div class="content-wrapper">
 
  <div class="container-xxl flex-grow-1 container-p-y">
@@ -10,7 +14,9 @@
               <div class="card">
                 <div class="d-flex justify-content-between align-items-center">
                     <h5 class="card-header">Liste des projets1</h5>
-                    <a href="#" target="_blank" class="btn btn-primary" style="margin:20px;">ajouter</a>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalScrollable" style="width: 100px; height: 30px;">
+                        Option 2
+                    </button>
                 </div>
 
 
@@ -18,7 +24,7 @@
 
                 <div class="card-body">
                   <div class="table-responsive text-nowrap">
-                    <table class="table table-bordered owerflow-x-auto"  >
+                    <table class="table table-bordered owerflow-x-auto" id="example" style="padding:20px margin:30px" >
                       <thead>
                         <tr class="text-nowrap">
                             <th>Titre_projet</th>
@@ -83,6 +89,64 @@
 
               <!--/ Responsive Table -->
             </div>
+
+
+            <script>
+                new DataTable('#example', {});
+            </script>
+
+
+
+
+
+
+
+    <div class="modal fade" id="modalScrollable" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalScrollableTitle">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                 <!--/ forulaire Table -->
+
+
+
+
+                <div class="modal-body">
+
+
+                    <div class="col-md-10">
+                        <input class="form-control" type="text" value="Sneat" id="html5-text-input" />
+                      </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="../assets/js/dashboards-analytics.js"></script>
 
 
 
