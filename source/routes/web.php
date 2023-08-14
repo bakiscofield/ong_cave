@@ -15,10 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('projet.index');
+
+// });
+
 Route::get('/', function () {
-    return view('projet.index');
+    return view('test');
 
 });
 Route::get('/projet/create', [projetController::class, 'create'])->name('projet.create');
 Route::get('/projet/index', [projetController::class, 'index'])->name('projet.index');
-
