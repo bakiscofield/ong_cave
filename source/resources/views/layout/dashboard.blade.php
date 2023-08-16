@@ -133,7 +133,7 @@
                     <li class="menu-item">
                         <ul class="menu-item">
                             <li class="menu-item">
-                                <a href="#" class="menu-link">
+                                <a href="{{route('projet.index')}}" class="menu-link">
                                     <div data-i18n="Account">Projet</div>
                                 </a>
                             </li>
@@ -148,10 +148,11 @@
                             <li class="menu-item">
                                 <ul class="menu-item">
                                     <li class="menu-item">
-                                        <a href="#" class="menu-link">
-                                            <div data-i18n="Account">Liste Axes Stratégiques</div>
+                                        <a href="{{route('categorie_projet.index')}}" class="menu-link">
+                                            <div data-i18n="Account">Projet</div>
                                         </a>
                                     </li>
+
 
 
                             <!-- User interface -->

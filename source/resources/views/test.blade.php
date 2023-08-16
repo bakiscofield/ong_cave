@@ -498,3 +498,10 @@
             <th>date_fin</th>
             <th>fichier_projet</th>
           </tr>
+          <thead>
+            <tr class="text-nowrap">
+                <th>ID</th>
+                <th>Axes Strategiques</th>
+                <th>Action</th>
+            </tr>
+        </thead>

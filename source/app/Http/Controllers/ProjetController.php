@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategorieProjet;
 use App\Models\Projet;
 use Illuminate\Http\Request;
 
@@ -12,15 +13,10 @@ class ProjetController extends Controller
      */
     public function index()
     {
-        $projets=Projet::all();
-        // dump($projet[0]->titre_projet);
-        // dump($projet[0]->objectif_global);
-        // dump($projet[0]->objectif_specifiques);
-        // dump($projet[0]->financement);
-        // dump($projet[0]->budjet);
-        // dd($projet[0]->zone);
-       // $projets[0]->find_duration();
-        return view('projet.index', compact('projets'));
+        $projets = Projet::all();
+        $categorie_projets=CategorieProjet::all();
+        //dd($categorie_projets[0]->nom_categorie);
+        return view('projet.index', compact('projets', 'categorie_projets'));
     }
 
     /**
@@ -31,14 +27,18 @@ class ProjetController extends Controller
         return view('projet.create');
     }
 
-
-
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
 
+        $request['id_user']=1;
+       // dd($request->all());
+        $projets = Projet::create($request->all());
+
+
+        return redirect()->route('projet.index')->with('success', 'Consultant supprimé avec succès.');
     }
 
     /**
@@ -70,6 +70,8 @@ class ProjetController extends Controller
      */
     public function destroy(Projet $projet)
     {
-        //
+       //dd($categorie_projet);
+       $projet->delete();
+       return redirect()->route('projet.index')->with('success', 'Consultant supprimé avec succès.');
     }
 }

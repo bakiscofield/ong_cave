@@ -13,7 +13,7 @@ class Projet extends Model
     use HasFactory;
 
     protected $fillable=[
-        'nom_categorie', 'id_categorie',
+        'nom_categorie', 'id_categorie','id_user',
         'titre_projet',
         'objectif_global',
         'objectif_specifiques',
