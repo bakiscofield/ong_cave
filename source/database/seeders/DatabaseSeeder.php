@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
                 CategorieProjetsTableSeeder::class,
                 UsersTableSeeder::class,
                 ProjetsTableSeeder::class,
+                categorieProjetsTableSeeder::class,
             ]
             );
     }

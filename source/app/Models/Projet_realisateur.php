@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\Pivot as RelationsPivot;
 
-class Projet_realisateur extends RelationsPivot
+class ProjetPrealisateur extends RelationsPivot
 {
 
     use HasFactory;

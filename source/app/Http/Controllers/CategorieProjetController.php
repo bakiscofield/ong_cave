@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categorie_projet;
+use App\Models\CategorieProjet;
 use Illuminate\Http\Request;
 
 class CategorieProjetController extends Controller
@@ -12,8 +13,9 @@ class CategorieProjetController extends Controller
      */
     public function index()
     {
-        $projet_categorie=Categorie_projet::all();
-        return view('categorie_projet.index', compact('projet_categorie'));
+        $projet_categories = CategorieProjet::all();
+       // dd($categories);
+        return view('categorie_projet.index', compact('projet_categories'));
     }
 
     /**
@@ -29,13 +31,14 @@ class CategorieProjetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categorie_projet = CategorieProjet::create($request->all());
+        return redirect()->route('categorie_projet.index')->with('success', 'Consultant supprimé avec succès.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Categorie_projet $categorie_projet)
+    public function show(CategorieProjet $categorie_projet)
     {
         //
     }
@@ -43,7 +46,7 @@ class CategorieProjetController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Categorie_projet $categorie_projet)
+    public function edit(CategorieProjet $categorie_projet)
     {
         //
     }
@@ -51,16 +54,20 @@ class CategorieProjetController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Categorie_projet $categorie_projet)
+    public function update(Request $request, CategorieProjet $categorie_projet)
     {
-        //
+        $categorie_projet->update($request->all());
+        return redirect()->route('categorie_projets.index')->with('success', 'categorie_projet mis à jour avec succès.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Categorie_projet $categorie_projet)
+
+    public function destroy(CategorieProjet $categorie_projet)
     {
-        //
+        //dd($categorie_projet);
+        $categorie_projet->delete();
+        return redirect()->route('categorie_projet.index')->with('success', 'Consultant supprimé avec succès.');
     }
 }
