@@ -67,18 +67,14 @@
                                                     <a class="dropdown-item" href="javascript:void(0);">
                                                         <i class="bx bx-edit-alt me-1"></i> Edit
                                                     </a>
-                                                    <form
-                                                    action="{{ route('projet.destroy', $projet) }}"
-                                                        method="POST">
+                                                    <form action="{{ route('projet.destroy', $projet) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit">
-
+                                                        <button type="submit" class="dropdown-item">
                                                             <i class="bx bx-trash me-1"></i> Delete
-
                                                         </button>
-
                                                     </form>
+
 
                                                 </div>
                                             </div>
@@ -101,10 +97,25 @@
             <!--/ Responsive Table -->
         </div>
 
+<script>
+         new DataTable('#example', {
+            // Options de configuration de DataTables
+            lengthChange: false, // Désactiver la sélection du nombre de lignes
+            info: false,
+            paging: false,
+            language: {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+            }
+            // Vous pouvez définir d'autres paramètres tels que les colonnes, etc.
+        });
 
-        <script>
+
+</script>
+
+
+        {{-- <script>
             new DataTable('#example', {});
-        </script>
+        </script> --}}
 
 
 
@@ -176,8 +187,8 @@
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-name">Budjet</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="basic-default-name" name="budjet"
-                                            placeholder="Budjet" />
+                                        <input type="text" class="form-control" id="basic-default-name"
+                                            name="budjet" placeholder="Budjet" />
                                     </div>
                                     <div class="row mb-3">
                                         <label class="col-sm-2 col-form-label" for="basic-default-name">Zone</label>

@@ -149,7 +149,7 @@
                                 <ul class="menu-item">
                                     <li class="menu-item">
                                         <a href="{{route('categorie_projet.index')}}" class="menu-link">
-                                            <div data-i18n="Account">Projet</div>
+                                            <div data-i18n="Account">Categories Projet</div>
                                         </a>
                                     </li>
 

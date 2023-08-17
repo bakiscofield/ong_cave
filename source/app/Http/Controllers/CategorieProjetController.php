@@ -48,7 +48,7 @@ class CategorieProjetController extends Controller
      */
     public function edit(CategorieProjet $categorie_projet)
     {
-        //
+        return view('categorie_projet.edit');
     }
 
     /**

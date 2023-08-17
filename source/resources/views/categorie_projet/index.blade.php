@@ -50,21 +50,34 @@
                                                     <i class="bx bx-dots-vertical-rounded"></i>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="javascript:void(0);">
-                                                        <i class="bx bx-edit-alt me-1"></i> Edit
-                                                    </a>
+                                                    <form action="{{ route('categorie_projet.edit') }}" method="GET">
+                                                        @csrf
+                                                        <a class="dropdown-item">
+                                                            <button type="submit" class="btn p-0">
+
+                                                                <i class="bx bx-edit-alt me-1"></i> Edit
+                                                            </button>
+
+                                                        </a>
+                                                    </form>
+
                                                     <form
-                                                        action="{{ route('categorie_projet.destroy', $projet_categories) }}"
+                                                        action="{{ route('categorie_projet.destroy', $categorie_projet) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit">
+                                                        <a class="dropdown-item">
+                                                            <button type="submit" class="btn p-0">
 
-                                                            <i class="bx bx-trash me-1"></i> Delete
+                                                                <i class="bx bx-trash me-1"></i> Delete
 
-                                                        </button>
+                                                            </button>
+
+                                                        </a>
+
 
                                                     </form>
+
 
                                                 </div>
                                             </div>
@@ -93,7 +106,7 @@
 
                     <div class="modal-body">
 
-                        <form action="{{route('categorie_projet.store')}}" method="POST">
+                        <form action="{{ route('categorie_projet.store') }}" method="POST">
                             @csrf
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
