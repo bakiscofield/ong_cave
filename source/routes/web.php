@@ -31,7 +31,11 @@ Route::get('/projet/create', [projetController::class, 'create'])->name('projet.
 Route::get('/projet/index', [projetController::class, 'index'])->name('projet.index');
 Route::post('/projet/store', [projetController::class, 'store'])->name('projet.store');
 Route::DELETE('/projet/destroy/{projet}', [ProjetController::class, 'destroy'])->name('projet.destroy');
+Route::get('/projet/{projet}/edit', [ProjetController::class, 'edit'])->name('projet.edit');
+Route::PUT('/projet/{projet}/update', [ProjetController::class, 'update'])->name('projet.update');
 // categorie_projet
 Route::get('/categorie_projet/index', [CategorieProjetController::class, 'index'])->name('categorie_projet.index');
 Route::DELETE('/categorie_Projet/destroy/{categorie_projet}', [CategorieProjetController::class, 'destroy'])->name('categorie_projet.destroy');
 Route::post('/categorie_projet/store', [CategorieProjetController::class, 'store'])->name('categorie_projet.store');
+Route::get('/categorie_projet/{categorie_projet}/edit', [CategorieProjetController::class, 'edit'])->name('categorie_projet.edit');
+

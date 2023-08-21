@@ -14,7 +14,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="card-header">Liste des Categories de Projets</h5>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#modalScrollable" style="width: 100px; height: 30px;">
+                                    data-bs-target="#modalScrollable" style="width: 100px; height: 30px; ">
                                     Ajouter
                                 </button>
                             </div>
@@ -45,26 +45,40 @@
 
                                         <td>
                                             <div class="dropdown">
-                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                                    data-bs-toggle="dropdown">
+                                                <a href=""
+                                                    class="btn p-0 dropdown-toggle hide-arrow" role="button">
                                                     <i class="bx bx-dots-vertical-rounded"></i>
-                                                </button>
+                                                </a>
+
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="javascript:void(0);">
-                                                        <i class="bx bx-edit-alt me-1"></i> Edit
-                                                    </a>
+                                                    <form action="{{ route('categorie_projet.edit', $categorie_projet) }}" method="GET">
+                                                        @csrf
+                                                        <a class="dropdown-item">
+                                                            <button type="submit" class="btn p-0">
+
+                                                                <i class="bx bx-edit-alt me-1"></i> Edit
+                                                            </button>
+
+                                                        </a>
+                                                    </form>
+
                                                     <form
-                                                        action="{{ route('categorie_projet.destroy', $projet_categories) }}"
+                                                        action="{{ route('categorie_projet.destroy', $categorie_projet) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit">
+                                                        <a class="dropdown-item">
+                                                            <button type="submit" class="btn p-0">
 
-                                                            <i class="bx bx-trash me-1"></i> Delete
+                                                                <i class="bx bx-trash me-1"></i> Delete
 
-                                                        </button>
+                                                            </button>
+
+                                                        </a>
+
 
                                                     </form>
+
 
                                                 </div>
                                             </div>
@@ -93,7 +107,7 @@
 
                     <div class="modal-body">
 
-                        <form action="{{route('categorie_projet.store')}}" method="POST">
+                        <form action="{{ route('categorie_projet.store') }}" method="POST">
                             @csrf
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
