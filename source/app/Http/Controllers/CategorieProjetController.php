@@ -46,9 +46,11 @@ class CategorieProjetController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+
+
     public function edit(CategorieProjet $categorie_projet)
     {
-        return view('categorie_projet.edit');
+        return view('categorie_projet.edit', compact('categorie_projet'));
     }
 
     /**

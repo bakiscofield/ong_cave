@@ -14,7 +14,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="card-header">Liste des Categories de Projets</h5>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#modalScrollable" style="width: 100px; height: 30px;">
+                                    data-bs-target="#modalScrollable" style="width: 100px; height: 30px; ">
                                     Ajouter
                                 </button>
                             </div>
@@ -45,12 +45,13 @@
 
                                         <td>
                                             <div class="dropdown">
-                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                                    data-bs-toggle="dropdown">
+                                                <a href=""
+                                                    class="btn p-0 dropdown-toggle hide-arrow" role="button">
                                                     <i class="bx bx-dots-vertical-rounded"></i>
-                                                </button>
+                                                </a>
+
                                                 <div class="dropdown-menu">
-                                                    <form action="{{ route('categorie_projet.edit') }}" method="GET">
+                                                    <form action="{{ route('categorie_projet.edit', $categorie_projet) }}" method="GET">
                                                         @csrf
                                                         <a class="dropdown-item">
                                                             <button type="submit" class="btn p-0">

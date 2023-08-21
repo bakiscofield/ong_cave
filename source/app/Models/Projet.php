@@ -31,7 +31,7 @@ class Projet extends Model
     public function categorie_projet():BelongsTo
     {
 
-        return $this->belongsTo(Categorie_projet::class);
+        return $this->belongsTo(CategorieProjet::class);
     }
 
     public function user():BelongsTo
@@ -50,7 +50,7 @@ class Projet extends Model
     {
        $debut= Carbon::parse($this->date_debut);
        $fin= Carbon::parse($this->date_fin);
-       $duration= $debut->diffInDays($this->date_fin) ;
+       $duration= $debut->diffInMonths($fin) ;
         return($duration);
     }
 }

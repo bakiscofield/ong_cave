@@ -24,7 +24,10 @@ class ProjetController extends Controller
      */
     public function create()
     {
-        return view('projet.create');
+        $projets = Projet::all();
+        $categorie_projets=CategorieProjet::all();
+        //dd($categorie_projets[0]->nom_categorie);
+        return view('projet.create', compact('projets', 'categorie_projets'));
     }
 
     /**
@@ -55,6 +58,10 @@ class ProjetController extends Controller
     public function edit(Projet $projet)
     {
         //
+        $projets = Projet::all();
+        $categorie_projets=CategorieProjet::all();
+
+        return view('projet.edit',compact('projets','categorie_projets','projet'));
     }
 
     /**
