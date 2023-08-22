@@ -1,52 +1,39 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Créer un projet</title>
-</head>
-<body>
-    <h1>Créer un nouveau projet</h1>
-    <form  method="post">
+<div class="modal fade" id="modalScrollable" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalScrollableTitle">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!--/ forulaire Table -->
 
 
-        <label for="titre_projet">Titre du projet:</label>
-        <input type="text" name="titre_projet" id="titre_projet">
-        <br>
 
-        <label for="objectif_global">Objectif global:</label>
-        <input type="text" name="objectif_global" id="objectif_global">
-        <br>
 
-        <label for="objectif_specifiques">Objectifs spécifiques:</label>
-        <input type="text" name="objectif_specifiques" id="objectif_specifiques">
-        <br>
+            <div class="modal-body">
 
-        <label for="financement">Financement:</label>
-        <input type="text" name="financement" id="financement">
-        <br>
+                <form action="{{ route('categorie_projet.store') }}" method="POST">
+                    @csrf
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="basic-default-name" name="nom_categorie"
+                                placeholder="Axes Stratégiques" />
+                        </div>
 
-        <label for="budjet">Budget:</label>
-        <input type="text" name="budjet" id="budjet">
-        <br>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                </form>
 
-        <label for="realisateur">Réalisateur:</label>
-        <input type="text" name="realisateur" id="realisateur">
-        <br>
 
-        <label for="zone">Zone:</label>
-        <input type="text" name="zone" id="zone">
-        <br>
 
-        <label for="duree">Durée:</label>
-        <input type="text" name="duree" id="duree">
-        <br>
 
-        <label for="photos">Photos:</label>
-        <input type="text" name="photos" id="photos">
-        <br>
+            </div>
+        </div>
+    </div>
 
-        <input type="submit" value="Créer le projet">
-    </form>
-</body>
-</html>
+</div>

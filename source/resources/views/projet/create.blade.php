@@ -1,12 +1,15 @@
-@extends('projet.index')
-@section('content')
-<div >
+<div class="modal fade" id="modalScrollable" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalScrollableTitle">ENREGISTREMENT DU PROJET </h5>
+                <h5 class="modal-title" id="modalScrollableTitle">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <!--/ forulaire Table -->
+
+
+
+
             <div class="modal-body">
 
                 <form action="{{ route('projet.store') }}" method="POST">
@@ -114,5 +117,11 @@
                             </div>
                         </div>
                 </form>
+
+
+
             </div>
-@stop
+        </div>
+    </div>
+
+</div>

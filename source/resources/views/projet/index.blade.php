@@ -15,12 +15,12 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <h5 class="card-header">Liste des projets1</h5>
 
-                        <a href="{{ route('projet.create')}}">
+
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalScrollable"
                             style="width: 100px; height: 30px;">
                             Ajouter
                         </button>
-                        </a>
+
 
                 </div>
 
@@ -100,7 +100,7 @@
 
             <!--/ Responsive Table -->
 
-            @yield('content')
+            @include('projet.create')
         </div>
 
 <script>
