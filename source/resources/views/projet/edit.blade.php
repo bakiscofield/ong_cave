@@ -33,8 +33,9 @@
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-default-message">objectif_global</label>
                         <div class="col-sm-10">
-                            <textarea name="objectif_global" id="basic-default-message" class="form-control"
-                                 value="{{$projet->objectif_global}}"></textarea>
+                            <textarea name="objectif_global" id="basic-default-message" class="form-control">
+                                 {{$projet->objectif_global}}
+                                </textarea>
                         </div>
                     </div>
 
@@ -42,8 +43,8 @@
                         <label class="col-sm-2 col-form-label"
                             for="basic-default-message">objectif_specifiques</label>
                         <div class="col-sm-10">
-                            <textarea name="objectif_specifiques" id="basic-default-message" class="form-control"
-                                 value="{{$projet->objectif_specifiques}}"></textarea>
+                            <textarea name="objectif_specifiques" id="basic-default-message" class="form-control">
+                                {{ $projet->objectif_specifiques }}</textarea>
                         </div>
                     </div>
 
@@ -51,7 +52,7 @@
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Financement</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="basic-default-name" name="financement"
-                                placeholder="Titre" value="{{$projet->financement}}"/>
+                                value="{{$projet->financement}}"/>
                         </div>
 
                         <div class="row mb-3">
