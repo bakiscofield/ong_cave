@@ -32,68 +32,69 @@
 
 
                     <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
-                    <div class="col-sm-10">
+                    <div class="mb-3">
                         <input type="text" class="form-control" id="basic-default-name" name="titre_projet"
                             placeholder="Titre" />
                     </div> <br>
 
-                    <div class="row mb-3">
+                    
                         <label class="col-sm-2 col-form-label" for="basic-default-message">objectif_global</label>
-                        <div class="col-sm-10">
+                        <div class="mb-3">
                             <textarea name="objectif_global" id="basic-default-message" class="form-control"
                                 placeholder="Hi, Do you have a moment to talk Joe?" aria-label="Hi, Do you have a moment to talk Joe?"
                                 aria-describedby="basic-icon-default-message2"></textarea>
                         </div>
-                    </div>
+                    
 
-                    <div class="row mb-3">
+                    
                         <label class="col-sm-2 col-form-label"
                             for="basic-default-message">objectif_specifiques</label>
-                        <div class="col-sm-10">
+                        <div class="mb-3">
                             <textarea name="objectif_specifiques" id="basic-default-message" class="form-control"
                                 placeholder="Hi, Do you have a moment to talk Joe?" aria-label="Hi, Do you have a moment to talk Joe?"
                                 aria-describedby="basic-icon-default-message2"></textarea>
                         </div>
-                    </div>
+                    
 
-                    <div class="row mb-3">
+                
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Financement</label>
-                        <div class="col-sm-10">
+                        <div class="mb-3">
                             <input type="text" class="form-control" id="basic-default-name" name="financement"
                                 placeholder="Titre" />
                         </div>
 
-                        <div class="row mb-3">
+                        
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Budjet</label>
-                            <div class="col-sm-10">
+                            <div class="mb-3">
                                 <input type="text" class="form-control" id="basic-default-name"
                                     name="budjet" placeholder="Budjet" />
                             </div>
-                            <div class="row mb-3">
+
+                           
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Zone</label>
-                                <div class="col-sm-10">
+                                <div class="mb-3">
                                     <input type="text" class="form-control" id="basic-default-name"
                                         name="zone" placeholder="Zone" />
                                 </div>
 
-                                <div class="mb-3 row">
+                                
                                     <label for="html5-date-input"
                                         class="col-md-2 col-form-label">DateDebut</label>
-                                    <div class="col-md-10">
+                                    <div class="mb-3">
                                         <input name="date_debut" class="form-control" type="date"
                                             value="2021-06-18" id="html5-date-input" />
                                     </div>
-                                </div>
+                                
 
 
 
-                                <div class="mb-3 row">
+                                
                                     <label for="html5-date-input" class="col-md-2 col-form-label">DateFin</label>
-                                    <div class="col-md-10">
+                                    <div class="mb-3">
                                         <input name="date_fin" class="form-control" type="date"
                                             value="2021-06-18" id="html5-date-input" />
                                     </div>
-                                </div>
+                                <
 
                                 <div class="mb-3">
 

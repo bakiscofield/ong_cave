@@ -1,4 +1,4 @@
-<div class="modal fade" id="modalScrollable" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="modalLong" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -11,13 +11,17 @@
 
 
             <div class="modal-body">
+            
+            @if (isset($projet))
 
-                <form action="{{ route('projet.update') }}" method="POST">
-                    @csrf
-
+                <form action="{{ route('projet.update',$projet) }}" method="POST" enctype="multipart/form-data">
+                    
                     @method('PUT')
+            @else
+                    <form method="POST" action="{{ route('projet.store') }}" enctype="multipart/form-data" >
 
-
+            @endif
+                    @csrf
 
                     <div class="mb-3">
                         <label for="exampleFormControlSelect1" class="form-label">Example select</label>
@@ -32,74 +36,74 @@
 
 
                     <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
-                    <div class="col-sm-10">
+                    <div class="mb-3">
                         <input type="text" class="form-control" id="basic-default-name" name="titre_projet"
-                            placeholder="Titre" />
+                            placeholder="Titre"  value="{{isset($projet->titre_projet) ? $projet->titre_projet: old('titre_projet')}}"/>
                     </div> <br>
 
-                    <div class="row mb-3">
+                    
                         <label class="col-sm-2 col-form-label" for="basic-default-message">objectif_global</label>
-                        <div class="col-sm-10">
+                        <div class="mb-3">
                             <textarea name="objectif_global" id="basic-default-message" class="form-control"
                                 placeholder="Hi, Do you have a moment to talk Joe?" aria-label="Hi, Do you have a moment to talk Joe?"
-                                aria-describedby="basic-icon-default-message2"></textarea>
+                                aria-describedby="basic-icon-default-message2">{{$projet->objectif_global}}</textarea>
                         </div>
-                    </div>
+                    
 
-                    <div class="row mb-3">
+                    
                         <label class="col-sm-2 col-form-label"
                             for="basic-default-message">objectif_specifiques</label>
-                        <div class="col-sm-10">
+                        <div class="mb-3">
                             <textarea name="objectif_specifiques" id="basic-default-message" class="form-control"
                                 placeholder="Hi, Do you have a moment to talk Joe?" aria-label="Hi, Do you have a moment to talk Joe?"
-                                aria-describedby="basic-icon-default-message2"></textarea>
+                                aria-describedby="basic-icon-default-message2">{{$projet->objectif_specifiques}}</textarea>
                         </div>
-                    </div>
+                    
 
-                    <div class="row mb-3">
+                
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Financement</label>
-                        <div class="col-sm-10">
+                        <div class="mb-3">
                             <input type="text" class="form-control" id="basic-default-name" name="financement"
-                                placeholder="Titre" />
+                                placeholder="Titre" value="{{$projet->financement}}"/>
                         </div>
 
-                        <div class="row mb-3">
+                        
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Budjet</label>
-                            <div class="col-sm-10">
+                            <div class="mb-3">
                                 <input type="text" class="form-control" id="basic-default-name"
-                                    name="budjet" placeholder="Budjet" />
+                                    name="budjet" placeholder="Budjet" value="{{$projet->budjet}}"/>
                             </div>
-                            <div class="row mb-3">
+
+                           
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Zone</label>
-                                <div class="col-sm-10">
+                                <div class="mb-3">
                                     <input type="text" class="form-control" id="basic-default-name"
-                                        name="zone" placeholder="Zone" />
+                                        name="zone" placeholder="Zone" value="{{$projet->zone}}" />
                                 </div>
 
-                                <div class="mb-3 row">
+                                
                                     <label for="html5-date-input"
                                         class="col-md-2 col-form-label">DateDebut</label>
-                                    <div class="col-md-10">
+                                    <div class="mb-3">
                                         <input name="date_debut" class="form-control" type="date"
-                                            value="2021-06-18" id="html5-date-input" />
+                                        value="{{$projet->date_debut}}" id="html5-date-input" />
                                     </div>
-                                </div>
+                                
 
 
 
-                                <div class="mb-3 row">
+                                
                                     <label for="html5-date-input" class="col-md-2 col-form-label">DateFin</label>
-                                    <div class="col-md-10">
+                                    <div class="mb-3">
                                         <input name="date_fin" class="form-control" type="date"
-                                            value="2021-06-18" id="html5-date-input" />
+                                        value="{{$projet->date_fin}}" id="html5-date-input" />
                                     </div>
-                                </div>
 
                                 <div class="mb-3">
 
                                     <label for="formFileMultiple" class="form-label"></label>
                                     <input name="fichier_projet" class="form-control" type="file"
-                                        id="formFileMultiple" multiple />
+                                        id="formFileMultiple" multiple value="{{isset($projet->fichier_projet) ? $projet->fichier_projet : old('fichier_projet')}}"/>
                                 </div>
 
 
