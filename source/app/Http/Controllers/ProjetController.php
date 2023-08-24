@@ -35,10 +35,32 @@ class ProjetController extends Controller
      */
     public function store(Request $request)
     {
+       // $projet=Projet::all();
 
+       //dd($request->file('fichier_projet')[0]->extension());
         $request['id_user']=1;
        // dd($request->all());
-        $projets = Projet::create($request->all());
+
+       $projets = Projet::create($request->all());
+       dd($projets[0]);
+       dd($request->file('fichier_projet'));
+       $i=0;
+       foreach($request->file('fichier_projet') as $file){
+
+           $path=$projets->titre_projetbel.++$i.".".$file->extension();
+           $path="fichier/".$path;
+           // dd($path);
+
+           $file->storeAs('public/',$path );
+           Projet::create(
+               [
+                   'path'=>$path,
+                   'id_projets'=>$projets->id,
+               ]
+               );
+       }
+
+
 
 
         return redirect()->route('projet.index')->with('success', 'Consultant supprimé avec succès.');

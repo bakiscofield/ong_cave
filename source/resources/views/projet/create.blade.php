@@ -12,7 +12,7 @@
 
             <div class="modal-body">
 
-                <form action="{{ route('projet.store') }}" method="POST">
+                <form action="{{ route('projet.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
 
