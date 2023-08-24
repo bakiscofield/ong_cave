@@ -17,7 +17,7 @@ class CategorieProjetController extends Controller
        // dd($categories);
         return view('categorie_projet.index', compact('projet_categories'));
     }
-
+.
     /**
      * Show the form for creating a new resource.
      */
