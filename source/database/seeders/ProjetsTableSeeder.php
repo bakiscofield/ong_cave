@@ -25,7 +25,7 @@ class ProjetsTableSeeder extends Seeder
             'zone' => 'Zone du projet 1',
             'date_debut' => '2023-01-01',
             'date_fin' => '2023-12-31',
-            'fichier_projet' => 'chemin/vers/fichier1.pdf',
+
         ]);
         DB::table('projets')->insert([
             'id_categorie' => 2,
@@ -38,7 +38,7 @@ class ProjetsTableSeeder extends Seeder
             'zone' => 'Zone du projet 1',
             'date_debut' => '2022-01-01',
             'date_fin' => '2022-01-05',
-            'fichier_projet' => 'chemin/vers/fichier1.pdf',
+
         ]);
     }
 }

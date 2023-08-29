@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string('zone');
             $table->string('date_debut');
             $table->string('date_fin');
-            $table->string('fichier_projet');
             $table->foreign('id_categorie')->references('id')->on('categorie_projets')->cascadeOnDelete();
             $table->foreign('id_user')->references('id')->on('users');
             $table->timestamps();

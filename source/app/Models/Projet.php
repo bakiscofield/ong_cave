@@ -22,7 +22,7 @@ class Projet extends Model
         'zone',
         'date_debut',
         'date_fin',
-        'fichier_projet'
+
 
     ];
     protected $casts=["date_debut"=>"datetime",
@@ -43,6 +43,12 @@ class Projet extends Model
     public function realisateur():HasMany
     {
     return $this->hasmany(Realisateur::class);
+    }
+
+
+    public function fichiers():HasMany
+    {
+    return $this->hasMany(Fichier::class, 'id_projet');
     }
 
 
