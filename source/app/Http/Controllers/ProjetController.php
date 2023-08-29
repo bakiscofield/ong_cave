@@ -80,6 +80,7 @@ class ProjetController extends Controller
     public function show(Projet $projet)
     {
         //
+        return view('projet.edit',compact('projets','categorie_projets','projet','cat'));
     }
 
     /**
@@ -88,10 +89,13 @@ class ProjetController extends Controller
     public function edit(Projet $projet)
     {
         //
+
         $projets = Projet::all();
         $categorie_projets=CategorieProjet::all();
 
-        return view('projet.edit',compact('projets','categorie_projets','projet'));
+        $cat = CategorieProjet::all()-> pluck('nom_categorie','id');
+
+        return view('projet.edit',compact('projet','cat'));
     }
 
     /**
@@ -100,8 +104,11 @@ class ProjetController extends Controller
     public function update(Request $request, Projet $projet)
     {
         //
-    }
+        $projet->update($request->all());
 
+
+        return redirect()->route('projet.index')->with('success', 'Consultant supprimé avec succès.');
+    }
     /**
      * Remove the specified resource from storage.
      */

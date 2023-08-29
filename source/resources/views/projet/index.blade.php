@@ -4,7 +4,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
-    <div class="content-wrapper">
+    <div class="content-wrapper bg-steal-950">
 
         <div class="container-xxl flex-grow-1 container-p-y">
             <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Liste des projets</h4>
@@ -44,13 +44,21 @@
                             <tbody>
                                 @foreach ($projets as $projet)
                                     <tr class="text-nowrap">
+                                    
                                         <td>
+                                            <a  data-bs-toggle="modal" data-bs-target="#largeModal" >
                                             <i class="fab fa-angular fa-lg text-danger me-3"></i>
                                             <strong>{{ $projet->titre_projet }}</strong>
+                                            </a>
                                         </td>
-                                        <td>{{ $projet->objectif_global }}</td>
                                         <td>
+                                            <a  data-bs-toggle="modal" data-bs-target="#largeModal" >
+                                            {{ $projet->objectif_global }}</td>
+                                            </a>
+                                        <td>
+                                            <a  data-bs-toggle="modal" data-bs-target="#largeModal" >
                                             {{ $projet->financement }}
+                                            </a>
                                         </td>
                                         <td>
                                             {{ $projet->budjet }}
@@ -58,19 +66,27 @@
                                         <td>
                                             {{ $projet->zone }}
                                         </td>
+                                    
                                         <td>
                                             {{ $projet->find_duration() }} mois
                                         </td>
+                                        
                                         <td>
+                                        
                                             <div class="dropdown">
                                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                                     data-bs-toggle="dropdown">
                                                     <i class="bx bx-dots-vertical-rounded"></i>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="{{route('projet.edit',$projet,$categorie_projets)}}">
-                                                        <i class="bx bx-edit-alt me-1"></i> Edit
-                                                    </a>
+                                                <a class="dropdown-item">
+                                                            <button  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalLong">
+
+                                                                <i class="bx bx-edit-alt me-1"></i> Edit
+                                                            </button>
+
+                                                        </a>
+                                    
                                                     <form action="{{ route('projet.destroy', $projet) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
@@ -100,7 +116,10 @@
 
             <!--/ Responsive Table -->
 
+            @include('projet.edit')
             @include('projet.create')
+            @include('projet.show')
+
         </div>
 
 <script>
