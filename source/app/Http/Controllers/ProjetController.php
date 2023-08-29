@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategorieProjet;
+use App\Models\Fichier;
 use App\Models\Projet;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,9 @@ class ProjetController extends Controller
         $projets = Projet::all();
         $categorie_projets=CategorieProjet::all();
         //dd($categorie_projets[0]->nom_categorie);
+      //  dd($projets[3]->fichiers);//
+        $fichier=Fichier::all();
+        dd($fichier[0]->id_projet);
         return view('projet.index', compact('projets', 'categorie_projets'));
     }
 
@@ -35,29 +39,33 @@ class ProjetController extends Controller
      */
     public function store(Request $request)
     {
-       // $projet=Projet::all();
 
-       //dd($request->file('fichier_projet')[0]->extension());
+
         $request['id_user']=1;
-       // dd($request->all());
 
-       $projets = Projet::create($request->all());
-       dd($projets[0]);
-       dd($request->file('fichier_projet'));
+         $projets = Projet::create($request->all());
+        //$projets="";
+
        $i=0;
-       foreach($request->file('fichier_projet') as $file){
+       //dd($request->all());
+       if ($request->file('fichier_projet') ){
+        foreach($request->file('fichier_projet') as $file){
 
-           $path=$projets->titre_projetbel.++$i.".".$file->extension();
-           $path="fichier/".$path;
-           // dd($path);
+            //dd($file);
+            $path=$projets->titre_projet.++$i.".".$file->extension();
+            $path="fichier/".$path;
+            // dd($path);
 
-           $file->storeAs('public/',$path );
-           Projet::create(
-               [
-                   'path'=>$path,
-                   'id_projets'=>$projets->id,
-               ]
-               );
+            $file->storeAs('public/',$path );
+            Fichier::create(
+                [
+                    'nom_fichier'=>$path,
+                    'id_projet'=>$projets->id,
+                ]
+                );
+           }
+       }else{
+        dd('save');
        }
 
 
