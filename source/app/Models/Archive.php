@@ -18,7 +18,7 @@ class Archive extends Model
     public function type_archive(): BelongsTo
     {
 
-        return $this->belongsTo(Type_archive::class, 'id_type_archive');
+        return $this->belongsTo(TypeArchive::class, 'id_type_archive');
     }
 
     public function user(): BelongsTo
@@ -26,10 +26,10 @@ class Archive extends Model
         return $this->belongsTo(User::class, 'id_user');
     }
 
-    public function departement(): BelongsTo
-    {
-        return $this->belongsTo(Departement::class, 'id_departement');
-    }
+    // public function departement(): BelongsTo
+    // {
+    //     return $this->belongsTo(Departement::class, 'id_departement');
+    // }
 
     public function fichier(): HasMany
     {
