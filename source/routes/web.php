@@ -34,6 +34,7 @@ Route::get('/projet/index', [projetController::class, 'index'])->name('projet.in
 Route::post('/projet/store', [projetController::class, 'store'])->name('projet.store');
 Route::DELETE('/projet/destroy/{projet}', [ProjetController::class, 'destroy'])->name('projet.destroy');
 Route::get('/projet/{projet}/edit', [ProjetController::class, 'edit'])->name('projet.edit');
+Route::get('/projet/{projet}/show', [ProjetController::class, 'show'])->name('projet.show');
 Route::PUT('/projet/{projet}/update', [ProjetController::class, 'update'])->name('projet.update');
 
 // categorie_projet
