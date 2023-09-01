@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Archive;
+use App\Models\Fichier;
+use App\Models\TypeArchive;
 use Illuminate\Http\Request;
 
 class ArchiveController extends Controller
@@ -21,7 +23,9 @@ class ArchiveController extends Controller
      */
     public function create()
     {
-       return view("archive.create");
+        $type_archive=TypeArchive::all();
+        //dd($type_archive[0]->nom_type);
+       return view("archive.create", compact('type_archive'));
     }
 
     /**
@@ -29,8 +33,31 @@ class ArchiveController extends Controller
      */
     public function store(Request $request)
     {
+        $request['id_user']=1;
+      //  dd(request());
+        //dd($request->id_type_archive);
+        $archive = Archive::create($request->all());
+      //  $projets = Projet::create($request->all());
+       //  dd($request->file('fichier_archives'));
+      $i=0;
+      //dd($request->all());
+      if ($request->file('fichier_archives') ){
+       foreach($request->file('fichier_archives') as $file){
+       // dd($file);
+           //dd($file);
+           $path=$archive->titre_archives.++$i.".".$file->extension();
+           $path="archives/".$path;
+           // dd($path);
 
-
+           $file->storeAs('public/',$path );
+           Fichier::create(
+               [
+                   'nom_fichier'=>$path,
+                   'id_archive'=>$archive->id,
+               ]
+               );
+          }
+      }
 
     }
 

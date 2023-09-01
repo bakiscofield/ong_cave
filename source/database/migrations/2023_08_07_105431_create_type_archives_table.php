@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('type_archives', function (Blueprint $table) {
             $table->id();
+         //   $table->integer('id_type');
             $table->string('nom_type');
+          //  $table->foreign('id_type')->references('id')->on('archives');
             $table->timestamps();
         });
     }

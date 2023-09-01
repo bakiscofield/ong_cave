@@ -14,7 +14,7 @@ class TypeArchive extends Model
     ];
 
     protected $primaryKey='id';
-    protected $table="archives";
+    protected $table="type_archives";
 
     public function archive():HasMany
     {

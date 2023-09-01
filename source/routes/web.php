@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\CategorieProjetController;
 use App\Http\Controllers\ProjetController;
+use App\Http\Controllers\TypeArchiveController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -41,3 +43,16 @@ Route::DELETE('/categorie_Projet/destroy/{categorie_projet}', [CategorieProjetCo
 Route::post('/categorie_projet/store', [CategorieProjetController::class, 'store'])->name('categorie_projet.store');
 Route::get('/categorie_projet/{categorie_projet}/edit', [CategorieProjetController::class, 'edit'])->name('categorie_projet.edit');
 
+//archive
+Route::get('/archive/index', [ArchiveController::class, 'index'])->name('archive.index');
+Route::get('/type_archive/index', [ArchiveController::class, 'index'])->name('archive.index');
+Route::get('/archive/create', [ArchiveController::class, 'create'])->name('archive.create');
+Route::post('/archive/store', [ArchiveController::class, 'store'])->name('archive.store');
+
+// type archive
+
+Route::get('/type_archive/index', [TypeArchiveController::class, 'index'])->name('type_archive.index');
+Route::post('/type_archive/store', [TypeArchiveController::class, 'store'])->name('type_archive.store');
+Route::DELETE('/type_archive/destroy/{type_archive}', [TypeArchiveController::class, 'destroy'])->name('type_archive.destroy');
+Route::get('/typearchive/{type_archive}/edit', [TypeArchiveController::class, 'edit'])->name('type_archive.edit');
+Route::post('/typearchive/{type_archive}', [TypeArchiveController::class, 'update'])->name('type_archive.update');

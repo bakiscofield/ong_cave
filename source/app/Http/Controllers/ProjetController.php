@@ -19,7 +19,7 @@ class ProjetController extends Controller
         //dd($categorie_projets[0]->nom_categorie);
       //  dd($projets[3]->fichiers);//
         $fichier=Fichier::all();
-        dd($fichier[0]->id_projet);
+       // dd($fichier[0]->id_projet);
         return view('projet.index', compact('projets', 'categorie_projets'));
     }
 
@@ -45,7 +45,7 @@ class ProjetController extends Controller
 
          $projets = Projet::create($request->all());
         //$projets="";
-
+        //dd($request->file('fichier_projet'));
        $i=0;
        //dd($request->all());
        if ($request->file('fichier_projet') ){
