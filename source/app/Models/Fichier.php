@@ -12,8 +12,8 @@ class Fichier extends Model
     use HasFactory;
     protected $fillable=[
        'nom_fichier',
-       'id_projet'
-       
+       'id_projet',
+       'id_archive',
 
 
     ];

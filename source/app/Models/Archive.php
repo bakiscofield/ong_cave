@@ -11,7 +11,7 @@ class Archive extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'titre_archives', 'contenue', 'id_type_archive', 'id_user', 'id_departement'
+        'titre_archives', 'id_type_archive', 'id_user'
     ];
     protected $primaryKey = 'id';
 

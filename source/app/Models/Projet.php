@@ -60,3 +60,4 @@ class Projet extends Model
         return($duration);
     }
 }
+ 

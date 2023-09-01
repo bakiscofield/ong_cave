@@ -45,6 +45,8 @@ Route::get('/categorie_projet/{categorie_projet}/edit', [CategorieProjetControll
 //archive
 Route::get('/archive/index', [ArchiveController::class, 'index'])->name('archive.index');
 Route::get('/type_archive/index', [ArchiveController::class, 'index'])->name('archive.index');
+Route::get('/archive/create', [ArchiveController::class, 'create'])->name('archive.create');
+Route::post('/archive/store', [ArchiveController::class, 'store'])->name('archive.store');
 
 // type archive
 
