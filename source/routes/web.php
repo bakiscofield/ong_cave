@@ -45,10 +45,11 @@ Route::get('/categorie_projet/{categorie_projet}/edit', [CategorieProjetControll
 
 //archive
 Route::get('/archive/index', [ArchiveController::class, 'index'])->name('archive.index');
-Route::get('/type_archive/index', [ArchiveController::class, 'index'])->name('archive.index');
+Route::DELETE('/archive/destroy/{archive}', [ArchiveController::class, 'destroy'])->name('archive.destroy');
 Route::get('/archive/create', [ArchiveController::class, 'create'])->name('archive.create');
 Route::post('/archive/store', [ArchiveController::class, 'store'])->name('archive.store');
-
+Route::get('/archive/{archive}/edit', [ArchiveController::class, 'edit'])->name('archive.edit');
+Route::post('/archive/{archive}/update', [ArchiveController::class, 'update'])->name('archive.update');
 // type archive
 
 Route::get('/type_archive/index', [TypeArchiveController::class, 'index'])->name('type_archive.index');

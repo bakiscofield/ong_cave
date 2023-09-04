@@ -16,10 +16,10 @@
                     <h5 class="card-header">Liste des archives</h5>
 
 
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalScrollable"
-                            style="width: 100px; height: 30px;">
-                            Ajouter
-                        </button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalScrollable"
+                        style="width: 100px; height: 30px;">
+                        Ajouter
+                    </button>
 
 
                 </div>
@@ -33,19 +33,19 @@
                             <thead>
                                 <tr class="text-nowrap">
                                     <th>Titre_archive</th>
-                                    <th>contenue</th>
+                                    <th>archives</th>
                                     <th>Action</th>
 
                                 </tr>
                             </thead>
-                            {{-- <tbody>
-                                @foreach ($projets as $projet)
+                            <tbody>
+                                @foreach ($archives as $archive)
                                     <tr class="text-nowrap">
                                         <td>
                                             <i class="fab fa-angular fa-lg text-danger me-3"></i>
-                                            <strong>{{ $projet->titre_projet }}</strong>
+                                            <strong>{{ $archive->titre_archives }}</strong>
                                         </td>
-                                        <td>{{ $projet->objectif_global }}</td>
+                                        <td> </td>
 
                                         <td>
                                             <div class="dropdown">
@@ -54,12 +54,12 @@
                                                     <i class="bx bx-dots-vertical-rounded"></i>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">
+                                                    <a class="dropdown-item" href="{{ route('archive.edit', $archive) }}">
                                                         <i class="bx bx-edit-alt me-1"></i> Edit
                                                     </a>
-                                                    <form action="#>
+                                                    <form action="{{ route('archive.destroy', $archive) }}" method="POST">
                                                         @csrf
-
+                                                        @method('DELETE')
                                                         <button type="submit" class="dropdown-item">
                                                             <i class="bx bx-trash me-1"></i> Delete
                                                         </button>
@@ -71,7 +71,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                            </tbody> --}}
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -89,20 +89,18 @@
 
         </div>
 
-<script>
-         new DataTable('#example', {
-            // Options de configuration de DataTables
-            lengthChange: false, // Désactiver la sélection du nombre de lignes
-            info: false,
-            paging: false,
-             language: {
-                 "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
-             }
-            // Vous pouvez définir d'autres paramètres tels que les colonnes, etc.
-        });
-
-
-</script>
+        <script>
+            new DataTable('#example', {
+                // Options de configuration de DataTables
+                lengthChange: false, // Désactiver la sélection du nombre de lignes
+                info: false,
+                paging: false,
+                language: {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                }
+                // Vous pouvez définir d'autres paramètres tels que les colonnes, etc.
+            });
+        </script>
 
 
         {{-- <script>
@@ -114,7 +112,7 @@
 
 
 
-                    {{-- <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+        {{-- <script src="../assets/vendor/libs/jquery/jquery.js"></script>
                     <script src="../assets/vendor/libs/popper/popper.js"></script>
                     <script src="../assets/vendor/js/bootstrap.js"></script>
                     <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
@@ -133,4 +131,4 @@
 
 
 
-                @stop
+    @stop
