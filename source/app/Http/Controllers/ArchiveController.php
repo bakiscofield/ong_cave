@@ -7,6 +7,8 @@ use App\Models\Fichier;
 use App\Models\TypeArchive;
 use Illuminate\Http\Request;
 
+use function PHPSTORM_META\type;
+
 class ArchiveController extends Controller
 {
     /**
@@ -14,8 +16,9 @@ class ArchiveController extends Controller
      */
     public function index()
     {
-        $archive=Archive::latest()->get();
-        return view("archive.index", compact("archive"));
+        $archives=Archive::latest()->get();
+     //   dd($archives[0]->titre_archives);
+        return view("archive.index", compact("archives"));
     }
 
     /**
@@ -74,7 +77,10 @@ class ArchiveController extends Controller
      */
     public function edit(Archive $archive)
     {
-        //
+    //dd($archive->all());
+        $type_archive=TypeArchive::all();
+        //dd($type_archive[0]->nom_type);
+       return view('archive.edit',compact('archive', 'type_archive'));
     }
 
     /**
@@ -83,6 +89,10 @@ class ArchiveController extends Controller
     public function update(Request $request, Archive $archive)
     {
         //
+
+        $archive->update($request->all());
+       // dd($archive);
+        return redirect()->route('archive.index');
     }
 
     /**
@@ -90,6 +100,7 @@ class ArchiveController extends Controller
      */
     public function destroy(Archive $archive)
     {
-        //
+        $archive->delete();
+        return redirect()->route('archive.index')->with('success', 'Consultant supprimé avec succès.');
     }
 }
