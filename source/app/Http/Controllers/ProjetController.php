@@ -46,28 +46,7 @@ class ProjetController extends Controller
          $projets = Projet::create($request->all());
         //$projets="";
         //dd($request->file('fichier_projet'));
-       $i=0;
-       //dd($request->all());
-       if ($request->file('fichier_projet') ){
-        foreach($request->file('fichier_projet') as $file){
-
-            //dd($file);
-            $path=$projets->titre_projet.++$i.".".$file->extension();
-            $path="fichier/".$path;
-            // dd($path);
-
-            $file->storeAs('public/',$path );
-            Fichier::create(
-                [
-                    'nom_fichier'=>$path,
-                    'id_projet'=>$projets->id,
-                ]
-                );
-           }
-       }else{
-        dd('save');
-       }
-
+     
 
 
 

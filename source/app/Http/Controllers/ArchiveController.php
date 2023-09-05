@@ -42,25 +42,9 @@ class ArchiveController extends Controller
         $archive = Archive::create($request->all());
       //  $projets = Projet::create($request->all());
        //  dd($request->file('fichier_archives'));
-      $i=0;
+     $archive->add_file($request);
       //dd($request->all());
-      if ($request->file('fichier_archives') ){
-       foreach($request->file('fichier_archives') as $file){
-       // dd($file);
-           //dd($file);
-           $path=$archive->titre_archives.++$i.".".$file->extension();
-           $path="archives/".$path;
-           // dd($path);
 
-           $file->storeAs('public/',$path );
-           Fichier::create(
-               [
-                   'nom_fichier'=>$path,
-                   'id_archive'=>$archive->id,
-               ]
-               );
-          }
-      }
 
     }
 
@@ -80,7 +64,13 @@ class ArchiveController extends Controller
     //dd($archive->all());
         $type_archive=TypeArchive::all();
         //dd($type_archive[0]->nom_type);
-       return view('archive.edit',compact('archive', 'type_archive'));
+       // dd($type_archive->);
+      // $fichier=Fichier::all();
+     //  dd($fichier[0]);
+       // dd($archive[1]);
+
+       $fichier=Fichier::all();
+       return view('archive.edit',compact('archive', 'type_archive', 'fichier'));
     }
 
     /**
@@ -91,6 +81,8 @@ class ArchiveController extends Controller
         //
 
         $archive->update($request->all());
+        $archive->add_file($request);
+        //dd($archive->fichiers);
        // dd($archive);
         return redirect()->route('archive.index');
     }
