@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Carbon\Carbon;
+use App\Models\Fichier;
 
 class Projet extends Model
 {
@@ -59,5 +60,33 @@ class Projet extends Model
        $duration= $debut->diffInMonths($fin) ;
         return($duration);
     }
+    public function add_pojet($request){
+        $i=0;
+        //dd($request->all());
+        if ($request->file('fichier_projet') ){
+         foreach($request->file('fichier_projet') as $file){
+
+             //dd($file);
+             $path=$this->titre_projet.++$i.".".$file->extension();
+             $path="fichier/".$path;
+             // dd($path);
+
+             $file->storeAs('public/',$path );
+             Fichier::create(
+                 [
+                     'nom_fichier'=>$path,
+                     'id_projet'=>$this->id,
+                 ]
+                 );
+            }
+        }else{
+         dd('save');
+        }
+
+    }
+
 }
- 
+
+
+
+
